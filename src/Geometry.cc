@@ -18,7 +18,7 @@ G4VPhysicalVolume *Geometry::Construct() {
     world_log->SetVisAttributes(G4VisAttributes::Invisible);
 
 
-    auto box = new G4Box("box",box_size/2.,box_size/2., box_size/2.);
+    auto box = new G4Box("box",40,40,40);
     auto box_log = new G4LogicalVolume(box,G4NistManager::Instance()->FindOrBuildMaterial("G4_BGO"),"box_log");
     new G4PVPlacement(nullptr,G4ThreeVector(),box_log,"box_pvp",world_log,false,0);
     return new G4PVPlacement(nullptr,G4ThreeVector(),world_log,"world_pvp", nullptr,false,0);
